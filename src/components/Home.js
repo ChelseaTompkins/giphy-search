@@ -6,7 +6,7 @@ const Home = (props) => {
     return (
         <div>
             <SearchBar />
-            <GiphyDisplay urls={props.urls}/>
+            <GiphyDisplay giphs={props.giphs}/>
         </div>
     )
 }

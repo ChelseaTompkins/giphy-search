@@ -5,7 +5,7 @@ const GiphyDisplay = (props) => {
     return (
         <div className="giphy-div-style container row" id="giphy-div-id">
             {
-                props.urls.map(url => <Giphy key={url} url={url}/>)
+                props.giphs.map(giph => <Giphy key={giph.url} giph={giph}/>)
             }
         </div>
     )

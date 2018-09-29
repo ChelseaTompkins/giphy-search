@@ -10,18 +10,18 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    const giphyAPI = `http://api.giphy.com/v1/gifs/search?q=kittens`
+    const giphyAPI = `http://api.giphy.com/v1/gifs/search?q=animals`
     axios.get(giphyAPI, {params: {api_key: 'U07bCKE95H1U45eiiZWnaTuAfUUA737X'}})
     .then((response)=>{
-      let allGiphyUrls = response.data.data.map(giphObj => giphObj.embed_url)
-      this.setState({ giphs: allGiphyUrls.slice(0, 9) })
+      let giphs = response.data.data.map(giphObj => ({url: giphObj.embed_url, title: giphObj.title}))
+      this.setState({ giphs: giphs.slice(0, 9) })
     })
   }
 
   render() {
     return (
       <div>
-        <Home urls={this.state.giphs}/>
+        <Home giphs={this.state.giphs} />
       </div>
     );
   }
