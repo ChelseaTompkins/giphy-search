@@ -12,8 +12,9 @@ class App extends Component {
   componentDidMount(){
     const giphyAPI = `http://api.giphy.com/v1/gifs/search?q=kittens`
     axios.get(giphyAPI, {params: {api_key: 'U07bCKE95H1U45eiiZWnaTuAfUUA737X'}})
-    .then((giphs)=>{
-      this.setState({ giphs: giphs.data.data.map(giphObj => giphObj.embed_url) })
+    .then((response)=>{
+      let allGiphyUrls = response.data.data.map(giphObj => giphObj.embed_url)
+      this.setState({ giphs: allGiphyUrls.slice(0, 9) })
     })
   }
 
