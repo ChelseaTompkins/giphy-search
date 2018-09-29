@@ -1,0 +1,10 @@
+:local(.nav) a {
+    font-size: 2em; 
+    font-family:'Cookie', cursive; 
+    color: #373a3c; 
+    text-decoration: none;
+}
+
+:local(.nav) a.navbar-brand {
+    font-size: 3em;
+}
