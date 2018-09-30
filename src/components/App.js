@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Home from './Home';
 import axios from 'axios';
 import { updateFavorites } from '../helpers';
+import MyGiphs from './MyGiphs';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props){
@@ -12,7 +14,7 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    const query = 'funny animals';
+    const query = 'the office';
     this.searchGiph(query);
   }
 
@@ -33,7 +35,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Home giphs={this.state.giphs} favorited={this.state.favorited} favoriteGiph={this.favoriteGiph} search={this.searchGiph}/>
+        <Switch>
+            <Route
+              path='/'
+              exact
+              component={() => <Home giphs={this.state.giphs} favorited={this.state.favorited} favoriteGiph={this.favoriteGiph} search={this.searchGiph}/>}
+            />
+            <Route
+              path='/mygiphs'
+              component={() => <MyGiphs giphs={this.state.favorited} favorited={this.state.favorited} favoriteGiph={this.favoriteGiph}/>}
+            />
+        </Switch>
       </div>
     );
   }

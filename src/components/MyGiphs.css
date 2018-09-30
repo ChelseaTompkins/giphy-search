@@ -16,3 +16,7 @@
 :local(.nav) div.my-giphs{
     font-size: 30px;
 }
+
+.fa-arrow-left{
+    font-size: 20px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SearchBar.css';
+import { Link } from 'react-router-dom';
 
 class SearchBar extends Component {
     constructor(props){
@@ -17,8 +18,8 @@ class SearchBar extends Component {
     render(){
         return (
             <nav className={"navbar navbar-light bg-light " + styles.nav}>
-                <a className="navbar-brand">Giphy life</a>
-                <a href="mygiphs.html">My Giphs</a>
+                <div className="navbar-brand">Giphy life</div>
+                <Link to="/mygiphs"><div className="navbar-brand my-giphs">My Giphs</div></Link>
                 <form className="form-inline" onSubmit={this.clickHandler}>
                     <input 
                         id="search-input" 
