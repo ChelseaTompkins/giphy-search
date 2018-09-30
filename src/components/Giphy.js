@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Giphy.css';
+import styles from '../style/Giphy.css';
 
 const Giphy = (props) => {
 

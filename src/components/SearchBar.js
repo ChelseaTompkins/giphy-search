@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './SearchBar.css';
+import styles from '../style/SearchBar.css';
 import { Link } from 'react-router-dom';
 
 class SearchBar extends Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './MyGiphs.css';
+import styles from '../style/MyGiphs.css';
 import GiphyDisplay from './GiphyDisplay';
 
 const MyGiphs = (props) => {
