@@ -6,7 +6,7 @@ const Home = (props) => {
     return (
         <div>
             <SearchBar />
-            <GiphyDisplay giphs={props.giphs}/>
+            <GiphyDisplay giphs={props.giphs} favorited={props.favorited} favoriteGiph={props.favoriteGiph}/>
         </div>
     )
 }

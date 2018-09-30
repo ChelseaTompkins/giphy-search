@@ -6,7 +6,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      giphs: []
+      giphs: [],
+      favorited: []
     }
   }
   componentDidMount(){
@@ -18,10 +19,14 @@ class App extends Component {
     })
   }
 
+  favoriteGiph = (giph) => {
+    this.setState({ favorited: [...this.state.favorited, giph] })
+  }
+
   render() {
     return (
       <div>
-        <Home giphs={this.state.giphs} />
+        <Home giphs={this.state.giphs} favorited={this.state.favorited} favoriteGiph={this.favoriteGiph}/>
       </div>
     );
   }
