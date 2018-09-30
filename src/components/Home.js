@@ -5,7 +5,7 @@ import GiphyDisplay from './GiphyDisplay';
 const Home = (props) => {
     return (
         <div>
-            <SearchBar />
+            <SearchBar search={props.search}/>
             <GiphyDisplay giphs={props.giphs} favorited={props.favorited} favoriteGiph={props.favoriteGiph}/>
         </div>
     )
