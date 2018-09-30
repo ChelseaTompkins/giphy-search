@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Home from './Home';
 import axios from 'axios';
+import { updateFavorites } from '../helpers';
 
 class App extends Component {
   constructor(props){
@@ -20,7 +21,7 @@ class App extends Component {
   }
 
   favoriteGiph = (giph) => {
-    this.setState({ favorited: [...this.state.favorited, giph] })
+    this.setState({ favorited: updateFavorites(giph, this.state.favorited) })
   }
 
   render() {
