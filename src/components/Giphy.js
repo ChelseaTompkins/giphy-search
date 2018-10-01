@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from '../style/Giphy.css';
+import { favoriteGiph } from '../actions';
+import { connect } from 'react-redux';
 
 const Giphy = (props) => {
 
@@ -16,4 +18,4 @@ const Giphy = (props) => {
     )
 }
 
-export default Giphy;
+export default connect(null, { favoriteGiph })(Giphy);

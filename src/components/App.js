@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import Home from './Home';
 import axios from 'axios';
-import { updateFavorites } from '../helpers';
 import MyGiphs from './MyGiphs';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      giphs: [],
-      favorited: []
+      giphs: []
     }
   }
   componentDidMount(){
     const query = 'the office';
     this.searchGiph(query);
-  }
-
-  favoriteGiph = (giph) => {
-    this.setState({ favorited: updateFavorites(giph, this.state.favorited) })
   }
 
   searchGiph = (query) => {
@@ -35,20 +30,29 @@ class App extends Component {
   render() {
     return (
       <div>
+        <BrowserRouter>
         <Switch>
             <Route
               path='/'
               exact
-              component={() => <Home giphs={this.state.giphs} favorited={this.state.favorited} favoriteGiph={this.favoriteGiph} search={this.searchGiph}/>}
+              component={() => <Home giphs={this.state.giphs} search={this.searchGiph} />}
             />
             <Route
               path='/mygiphs'
-              component={() => <MyGiphs giphs={this.state.favorited} favorited={this.state.favorited} favoriteGiph={this.favoriteGiph}/>}
+              component={() => <MyGiphs giphs={this.props.favorited} />}
             />
         </Switch>
+        </BrowserRouter>
+        
       </div>
     );
   }
 }
 
-export default App;
+let mapStateToProps = state => {
+  return {
+    favorited: state.favorited
+  }
+}
+
+export default connect(mapStateToProps)(App);
